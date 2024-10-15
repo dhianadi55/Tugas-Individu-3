@@ -1,0 +1,128 @@
+/* Global styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    background-color: #5357c6;
+    text-align: center;
+    padding: 1rem;
+}
+
+nav {
+    background-color: #9ebbf2;
+    color: white;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline; /* Inline element */
+    margin: 0 15px;
+}
+
+main {
+    padding: 1rem;
+    flex: 1; /* Flexbox for main layout */
+}
+
+/* Style for the links */
+nav ul li a {
+    color: white; /* Set the link color to white */
+    text-decoration: none; /* Remove underline */
+    position: relative; /* For positioning the tooltip */
+    padding: 5px;
+}
+
+/* Tooltip styling */
+nav ul li a .tooltip {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the link */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+}
+
+/* Show the tooltip on hover */
+nav ul li a:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    nav ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    main {
+        background-color: #e0f7fa;
+    }
+}
+
+/* Tablet layout */
+@media (min-width: 601px) and (max-width: 1024px) {
+    nav ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        background-color: whitesmoke;
+    }
+}
+
+/* Desktop layout */
+@media (min-width: 1025px) {
+    body {
+        display: grid;
+        grid-template-areas: 
+            "header header"
+            "nav main"
+            "footer footer";
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    header {
+        grid-area: header;
+    }
+
+    nav {
+        grid-area: nav;
+        background-color: #9ebbf2;
+    }
+
+    main {
+        grid-area: main;
+        background-color: #fff;
+    }
+
+    footer {
+        grid-area: footer;
+    }
+}
